@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1649255161 source:d:\faculdade\projetos\stackcalc\pilha.c
+	"pilha.h"
+
+1649255152 d:\faculdade\projetos\stackcalc\pilha.h
+	<stdio.h>
+	<stdlib.h>
+
+1649256099 source:d:\faculdade\projetos\stackcalc\main.c
+	"pilha.h"
+	"calc.h"
+
+1649257297 source:d:\faculdade\projetos\stackcalc\calc.c
+	"calc.h"
+	"pilha.h"
+
+1649254479 d:\faculdade\projetos\stackcalc\calc.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
