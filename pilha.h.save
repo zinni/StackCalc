@@ -1,15 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+typedef struct _stack {
+    int *valores;
+    int tamanho;
+    int qtd;
+} Stack;
 
-typedef struct _pilha {
-    int* data;
-    int top;
-    int tam;
-} Pilha;
+// Cria estrutura de Stack
+Stack *stack_cria(int tamanho);
 
-void empurra(Pilha *ph, int valor);
-int popa(Pilha *ph);
-int olha(Pilha *ph);
-int vazia(Pilha *ph);
-Pilha* init(int tam);
+// Imprime a estrutura de Stack
+void stack_imprime(Stack *stack);
 
+// Coloca item no Stack
+void push(Stack *stack, int valor);
+
+// Retira item do Stack
+int pop(Stack *stack);
+
+// Olha o item no topo da pilha
+int peek(Stack *stack);

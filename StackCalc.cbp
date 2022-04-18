@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="calc.h" />
+		<Unit filename="conversor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="conversor.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

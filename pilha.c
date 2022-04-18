@@ -1,58 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "pilha.h"
 
-//Inicialização dinamica da Pilha
-Pilha* init(int tam){
-    Pilha *ph = (Pilha*)malloc(sizeof(Pilha));
-    if(ph == NULL){
-        printf("erro de memoria");
-        exit(1);
+
+Stack* stack_cria(int tamanho) {
+    Stack *stack = (Stack*) malloc(sizeof(Stack));
+    int *valores = (int *)malloc(sizeof(int) * tamanho);
+    if (valores == NULL) {
+        printf("Erro tentando alocar espaço");
+        return NULL;
     }
-    ph->data = (int*)malloc(sizeof(int) * tam);
-    if(ph->data == NULL){
-        printf("erro de memoria");
-        exit(1);
-    }
-    ph->top = -1;
-    ph->tam = tam;
-    return ph;
+    free(stack->valores);
+    stack->qtd = 0;
+    stack->valores = valores;
+    stack->tamanho = tamanho;
+    return stack;
 }
 
-void empurra(Pilha *ph, int valor){
-    if (ph->top == ph->tam - 1){
-        //Se cheio, dobra o tamanho do stack
-        int* temp = (int*)malloc(sizeof(int) * ph->tam * 2);
-            if (temp == NULL){
-                printf("erro de memoria");
-                return;
-            }
-            for(int i = 0; i <= ph->top; i++){
-                temp[i] = ph->data[i];
-            }
-            free(ph->data);
-            ph->data = temp;
-            ph->tam *= 2;
+void stack_imprime(Stack *stack) {
+    printf("[");
+    for (int i = 0; i < stack->qtd;i++){
+        if(i != 0) {
+            printf(" ");
         }
-    ph->data[++ph->top] = valor;
+        int valor = stack->valores[i];
+        printf("%d", valor);
+    }
+    printf("]\n");
 }
 
-int popa(Pilha *ph){
-    if(ph->top == -1){
+void push(Stack *stack, int valor) {
+    if(stack->tamanho == stack->qtd) {
+        int novo_tamanho = stack->tamanho * 2;
+        int *valores = (int *)realloc(stack->valores, sizeof(int) * novo_tamanho);
+        if(valores == NULL) {
+            printf("Erro tentando alocar mais espaço");
+            return;
+        }
+        stack->valores = valores;
+        stack->tamanho = novo_tamanho;
+    }
+    stack->valores[stack->qtd] = valor;
+    stack->qtd++;
+}
+
+int pop(Stack *stack) {
+    if(stack->qtd == 0) {
         return -1;
     }
-    else{
-        return ph->data[ph->top--];
-    }
+    stack->qtd -= 1;
+    return stack->valores[stack->qtd];
 }
 
-int olha(Pilha *ph){
-    if(ph->top == -1){
+int peek(Stack *stack) {
+    if(stack->qtd == 0) {
         return -1;
     }
-    else{
-        return ph->data[ph->top];
-    }
-}
-
-int vazia(Pilha *ph){
-    return (ph->top == -1);
+    return stack->valores[stack->qtd - 1];
 }

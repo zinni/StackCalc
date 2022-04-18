@@ -20,3 +20,33 @@
 	<string.h>
 	<stdbool.h>
 
+1650279727 source:c:\users\alice\documents\github\stackcalc\calc.c
+	<stdio.h>
+	"calc.h"
+
+1650279727 c:\users\alice\documents\github\stackcalc\calc.h
+	"conversor.h"
+
+1650279727 c:\users\alice\documents\github\stackcalc\pilha.h
+
+1650282327 source:c:\users\alice\documents\github\stackcalc\main.c
+	<stdio.h>
+	<locale.h>
+	"calc.h"
+
+1650279727 source:c:\users\alice\documents\github\stackcalc\pilha.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"pilha.h"
+
+1650323356 c:\users\alice\documents\github\stackcalc\conversor.h
+	"pilha.h"
+
+1650323356 source:c:\users\alice\documents\github\stackcalc\conversor.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"conversor.h"
+

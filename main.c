@@ -1,25 +1,17 @@
-#include "pilha.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 #include "calc.h"
 
-int main()
-{
-    Pilha *p1 = init(5);
-    empurra(p1, 10);
-    empurra(p1, 20);
-    empurra(p1, 30);
-    empurra(p1, 40);
-    empurra(p1, 50);
-    printf("Tamanho: %d\n", p1->tam);
-    empurra(p1, 60);
-    printf("Tamanho: %d\n", p1->tam);
-    while(p1->top != -1){
-        printf("%d\n", popa(p1));
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    Conta *conta = conta_cria(20);
+    char entrada[20];
+    while(strlen(entrada) != 0 ){
+        printf("\nDigite uma expressão:");
+        gets(entrada);
+        to_sufix(conta, entrada);
+        calcular_conta(conta);
     }
-    printf("Vazia? (1) True e (0) False: ");
-    printf("%d\n", vazia(p1));
-    printf("40 * 2 = %d\n",calcula(40,2, '*'));
-    printf("30 + 4 * 5 = %d\n",avaliar("30+4*5"));
-    printf("(6+4)*(7-2) = %d\n",avaliar("(6+4)*(7-2)"));
-
-    return 0;
+    return 1;
 }
