@@ -30,3 +30,12 @@ void calcular_conta(Conta *conta) {
     }
     printf("\nResultado: %d\n", pop(stack));
 }
+
+void teste(Conta *conta, char *entrada){
+    if (strlen(entrada) > 2){
+        to_sufix(conta, entrada);
+        calcular_conta(conta);
+    } else {
+        printf("\nSaindo do programa...\n");
+    }
+}

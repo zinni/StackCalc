@@ -1,17 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
 #include "calc.h"
 
-int main() {
+int main(){
     setlocale(LC_ALL, "Portuguese");
     Conta *conta = conta_cria(20);
     char entrada[20];
-    while(strlen(entrada) != 0 ){
+    do {
         printf("\nDigite uma expressão:");
-        gets(entrada);
-        to_sufix(conta, entrada);
-        calcular_conta(conta);
-    }
+        fgets(entrada, sizeof entrada, stdin);
+        teste(conta, entrada);
+    } while(strlen(entrada) > 1 );
     return 1;
 }

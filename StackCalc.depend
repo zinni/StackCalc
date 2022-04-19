@@ -29,9 +29,11 @@
 
 1650279727 c:\users\alice\documents\github\stackcalc\pilha.h
 
-1650282327 source:c:\users\alice\documents\github\stackcalc\main.c
+1650410844 source:c:\users\alice\documents\github\stackcalc\main.c
 	<stdio.h>
+	<stdlib.h>
 	<locale.h>
+	<string.h>
 	"calc.h"
 
 1650279727 source:c:\users\alice\documents\github\stackcalc\pilha.c
